@@ -1,0 +1,142 @@
+public class ProbabilityAssignment {
+
+    // 1. 機率的定義 (Probability Definition)
+    public static class ProbabilityDefinition {
+        public static void run() {
+            double eventA = 5.0;
+            double total = 20.0;
+            System.out.println("[Step 1] Probability Definition: P(A) = " + (eventA / total));
+        }
+    }
+
+    // 2. 樣本空間 (Sample Space)
+    public static class SampleSpace {
+        public static void run() {
+            String[] S = {"S1", "S2", "S3", "S4", "S5"};
+            System.out.println("[Step 2] Sample Space S size: " + S.length);
+        }
+    }
+
+    // 3. 事件 (Event)
+    public static class Event {
+        public static void run() {
+            String target = "建中學生";
+            System.out.println("[Step 3] Event A: Target is " + target);
+        }
+    }
+
+    // 4. 基本公式 (Basic Formula)
+    public static class BasicFormula {
+        public static void run() {
+            int nA = 25, nS = 100;
+            double prob = (double) nA / nS;
+            System.out.println("[Step 4] Basic Formula: n(A)/n(S) = " + prob);
+        }
+    }
+
+    // 5. 補事件 (Complement Event)
+    public static class ComplementEvent {
+        public static void run() {
+            double pA = 0.3;
+            System.out.println("[Step 5] Complement P(A^C): " + (1 - pA));
+        }
+    }
+
+    // 6. 聯集 (Union Event)
+    public static class UnionEvent {
+        public static void run() {
+            double pA = 0.53, pB = 0.45, pInter = 0.20;
+            double pUnion = pA + pB - pInter;
+            System.out.println("[Step 6] Union P(A∪B): " + String.format("%.2f", pUnion));
+        }
+    }
+
+    // 7. 交集 (Intersection Event)
+    public static class IntersectionEvent {
+        public static void run() {
+            double pA = 0.60, pB_given_A = 0.35;
+            double pInter = pA * pB_given_A;
+            System.out.println("[Step 7] Intersection P(A∩B): " + String.format("%.2f", pInter));
+        }
+    }
+
+    // 8. 條件機率 (Conditional Probability)
+    public static class ConditionalProbability {
+        public static void run() {
+            double pInter = 0.30, pB = 0.65;
+            double pA_given_B = pInter / pB;
+            System.out.println("[Step 8] Conditional P(A|B): " + String.format("%.2f", pA_given_B));
+        }
+    }
+
+    // 9. 獨立事件 (Independent Event)
+    public static class IndependentEvent {
+        public static void run() {
+            double pA = 0.60, pB = 0.45;
+            double pInter = pA * pB;
+            System.out.println("[Step 9] Independent P(A∩B): " + pInter);
+        }
+    }
+
+    // 10. 貝氏定理 (Bayes Theorem)
+    public static class BayesTheorem {
+        public static void run() {
+            double pB_given_A = 0.6, pA = 0.1, pB = 0.05;
+            double pA_given_B = (pB_given_A * pA) / pB;
+            System.out.println("[Step 10] Bayes Theorem P(A|B): " + pA_given_B);
+        }
+    }
+
+    // 11. 全機率公式 (Total Probability)
+    public static class TotalProbability {
+        public static void run() {
+            double[] pA_given_Bi = {0.1, 0.2};
+            double[] pBi = {0.4, 0.6};
+            double total = 0;
+            for (int i = 0; i < pBi.length; i++) total += pA_given_Bi[i] * pBi[i];
+            System.out.println("[Step 11] Total Probability: " + total);
+        }
+    }
+
+    // 12. 學校例子 (School Example)
+    public static class SchoolExample {
+        public static void run() {
+            double J = 30, B = 20, N = 100;
+            System.out.println("[Step 12] P(建中) = " + (J / N) + ", P(北一女) = " + (B / N));
+        }
+    }
+
+    // 13. 聯集學校例子 (Union School Example)
+    public static class UnionSchoolExample {
+        public static void run() {
+            double J = 30, B = 20, N = 100;
+            double pUnion = (J + B) / N;
+            System.out.println("[Step 13] P(建中∪北一女) = " + pUnion);
+        }
+    }
+
+    // 主程式：整合呼叫 13 個實驗
+    public static void main(String[] args) {
+        System.out.println("============================================");
+        System.out.println("            Probability Calculations        ");
+        System.out.println("============================================");
+
+        ProbabilityDefinition.run();
+        SampleSpace.run();
+        Event.run();
+        BasicFormula.run();
+        ComplementEvent.run();
+        UnionEvent.run();
+        IntersectionEvent.run();
+        ConditionalProbability.run();
+        IndependentEvent.run();
+        BayesTheorem.run();
+        TotalProbability.run();
+        SchoolExample.run();
+        UnionSchoolExample.run();
+
+        System.out.println("============================================");
+        System.out.println("   Execution Completed Successfully         ");
+        System.out.println("============================================");
+    }
+}
